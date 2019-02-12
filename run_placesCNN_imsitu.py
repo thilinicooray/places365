@@ -43,7 +43,7 @@ centre_crop = trn.Compose([
 ])
 
 def predict_place(img_dir, img_name, model, classes):
-    img = Image.open(os.path.join(img_dir, img_name))
+    img = Image.open(os.path.join(img_dir, img_name)).convert('RGB')
     input_img = V(centre_crop(img).unsqueeze(0))
 
     # forward pass
